@@ -6,19 +6,20 @@
 package gestionclientes.gui;
 
 import gestionclientes.cliente.Cliente;
+import java.util.Date;
 
 /**
  *
  * @author Dams2
  */
 public class DialogAlta extends javax.swing.JDialog {
-
+Principal principal;
     /**
      * Creates new form DialogAlta
      */
     public DialogAlta(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        Principal principal =(Principal)parent;
+         principal =(Principal)parent;
         initComponents();
     }
 
@@ -161,8 +162,8 @@ public class DialogAlta extends javax.swing.JDialog {
     }//GEN-LAST:event_comboBoxProvinciaActionPerformed
 
     private void buttonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAltaActionPerformed
-             Cliente cliente = new Cliente(textFieldNombre.getText(),textFieldApellidos.getText(),spinnerFechaAlta.toString(),comboBoxProvincia.getSelectedItem().toString());
-              
+             Cliente cliente = new Cliente(textFieldNombre.getText(),textFieldApellidos.getText(),(Date)spinnerFechaAlta.getValue(),(String)comboBoxProvincia.getSelectedItem());
+              principal.anadirCliente(cliente);
         dispose();
     }//GEN-LAST:event_buttonAltaActionPerformed
 

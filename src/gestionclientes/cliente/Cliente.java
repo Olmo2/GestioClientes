@@ -15,7 +15,7 @@ public class Cliente {
     
     private String nombre;
     private String apellidos;
-    private String fecha;
+    private Date fecha;
     private String provincia;
 
     
@@ -44,11 +44,11 @@ public class Cliente {
         this.apellidos = apellidos;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -60,13 +60,24 @@ public class Cliente {
         this.provincia = provincia;
     }
 
-    public Cliente(String nombre, String apellidos, String fecha, String provincia) {
+    public Cliente(String nombre, String apellidos, Date fecha, String provincia) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.fecha = fecha;
         this.provincia = provincia;
     }
     
+    public String[] toArrayString(){
+    
+    String[] str = new String[4];
+    str[0]=nombre;
+    str[1]=apellidos;
+    str[2]=fecha.toString();
+    str[3]=provincia;
+    
+    return str;
+    
+    }
     
     
     

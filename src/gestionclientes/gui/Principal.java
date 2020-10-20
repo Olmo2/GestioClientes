@@ -11,6 +11,7 @@ package gestionclientes.gui;
  * @author Dams2
  */
 
+import gestionclientes.cliente.Cliente;
 import javax.swing.table.*;
 public class Principal extends javax.swing.JFrame {
 
@@ -19,13 +20,20 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        inicializarTabla();
     }
 
     private void inicializarTabla(){
         DefaultTableModel dtm;
         dtm = new DefaultTableModel();
+        dtm.setColumnIdentifiers(new String[]{"Nombre","Apellidos","FechaAlta","Provincia"});
         tablaClientes.setModel(dtm);
         
+    }
+    
+    public void anadirCliente(Cliente cliente){
+        DefaultTableModel dtm = (DefaultTableModel)tablaClientes.getModel();
+        dtm.addRow(cliente.toArrayString());
     }
     /**
      * This method is called from within the constructor to initialize the form.
